@@ -56,6 +56,14 @@ public class PrimesTest {
 	}
 	
 	@Test
+	public void backwards() {
+		List<Integer> x = primeNumbers.generate(27, 0);
+		assertEquals(primes23, x);
+		List<Integer> y = primeNumbers.generate(7920, 7900);
+		assertEquals(primes7920, y);
+	}
+	
+	@Test
 	public void factorialTest() {
 		assertEquals(BigInteger.valueOf(720), primeNumbers.factorial(6));
 	}

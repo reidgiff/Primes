@@ -18,7 +18,7 @@ public class PrimeNumbers implements PrimeNumberGenerator {
 				}
 			}
 		} else if (startingValue > endingValue) {
-			for(int i = startingValue; i <= endingValue; i++) {
+			for(int i = endingValue; i <= startingValue; i++) {
 				if(isPrime(i)) {
 					results.add(i);
 				}	
@@ -37,8 +37,7 @@ public class PrimeNumbers implements PrimeNumberGenerator {
 		}
 		if((value % 2) == 0 || (value % 3) == 0 || (value % 5) == 0) {
 			return false;
-		}
-		
+		}		
 		// n+1 is prime iff n! mod (n+1) = n
 		// Wilson's Theorem
 		if (factorial(value-1).mod(BigInteger.valueOf(value)).equals(BigInteger.valueOf(value-1)))
@@ -48,7 +47,6 @@ public class PrimeNumbers implements PrimeNumberGenerator {
 		return false;
 	}
 	
-	//goes to infinity fast, works for 13.
 	public BigInteger factorial(int num) {
 		BigInteger factorial = BigInteger.ONE;
 		for(int i = 1; i <= num; i++)
