@@ -1,5 +1,6 @@
 package main;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class PrimeNumbers implements PrimeNumberGenerator {
 		
 		// n+1 is prime iff n! mod (n+1) = n
 		// Wilson's Theorem
-		if (factorial(value-1) % (value) == value-1)
+		if (factorial(value-1).mod(BigInteger.valueOf(value)).equals(BigInteger.valueOf(value-1)))
 		{
 			return true;
 		}		
@@ -48,11 +49,11 @@ public class PrimeNumbers implements PrimeNumberGenerator {
 	}
 	
 	//goes to infinity fast, works for 13.
-	private double factorial(int num) {
-		double factorial = 1;
+	public BigInteger factorial(int num) {
+		BigInteger factorial = BigInteger.ONE;
 		for(int i = 1; i <= num; i++)
 		{
-			factorial = factorial * i;
+			factorial = factorial.multiply(BigInteger.valueOf(i));
 		}
 		return factorial;
 	}
