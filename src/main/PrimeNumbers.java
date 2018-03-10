@@ -11,7 +11,7 @@ public class PrimeNumbers implements PrimeNumberGenerator {
 		
 		List<Integer> results = new ArrayList<Integer>();
 		
-		if(startingValue < endingValue) {
+		if(startingValue <= endingValue) {
 			for(int i = startingValue; i <= endingValue; i++) {
 				if(isPrime(i)) {
 					results.add(i);
@@ -32,12 +32,14 @@ public class PrimeNumbers implements PrimeNumberGenerator {
 		if(value < 2) {
 			return false;
 		}
+		//for performance, arbitrarily check the first few primes and if value has them as a factor
 		if(value == 2 || value == 3 || value == 5) {
 			return true;
 		}
 		if((value % 2) == 0 || (value % 3) == 0 || (value % 5) == 0) {
 			return false;
-		}		
+		}
+		
 		// n+1 is prime iff n! mod (n+1) = n
 		// Wilson's Theorem
 		if (factorial(value-1).mod(BigInteger.valueOf(value)).equals(BigInteger.valueOf(value-1)))

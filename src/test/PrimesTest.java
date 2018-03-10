@@ -67,5 +67,30 @@ public class PrimesTest {
 	public void factorialTest() {
 		assertEquals(BigInteger.valueOf(720), primeNumbers.factorial(6));
 	}
+	
+	@Test
+	public void listCount() {
+		List<Integer> x = primeNumbers.generate(0, 101);
+		assertEquals(x.size(), 26);
+		x = primeNumbers.generate(0, 10);
+		assertEquals(x.size(), 4);
+		x = primeNumbers.generate(0, 100);
+		assertEquals(x.size(), 25);
+		x = primeNumbers.generate(0, 1000);
+		assertEquals(x.size(), 168);
+		x = primeNumbers.generate(0, 10000);
+		assertEquals(x.size(), 1229);
+	}
+	
+	@Test
+	public void startEqualsEnd() {
+		List<Integer> x = primeNumbers.generate(2, 2);
+		assertEquals(Arrays.asList(2), x);
+		x = primeNumbers.generate(97, 97);
+		assertEquals(Arrays.asList(97), x);
+		x = primeNumbers.generate(16, 16);
+		assertTrue(x.isEmpty());
+		
+	}
 
 }
