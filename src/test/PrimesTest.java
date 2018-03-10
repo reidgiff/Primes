@@ -1,8 +1,6 @@
 package test;
 
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,6 +11,7 @@ import main.PrimeNumbers;
 public class PrimesTest {
 	PrimeNumbers primeNumbers = new PrimeNumbers();
 	List<Integer> primes13 = Arrays.asList(2,3,5,7,11,13);
+	List<Integer> primes7920 = Arrays.asList(7901,7907,7919);
 	
 	@Test
 	public void primes() {
@@ -20,10 +19,13 @@ public class PrimesTest {
 		assertTrue(primeNumbers.isPrime(3));
 		assertTrue(primeNumbers.isPrime(5));
 		assertTrue(primeNumbers.isPrime(7));
+		assertTrue(primeNumbers.isPrime(11));
 	}
 	
 	@Test
 	public void notPrimes() {
+		assertFalse(primeNumbers.isPrime(-3));
+		assertFalse(primeNumbers.isPrime(0));
 		assertFalse(primeNumbers.isPrime(1));
 		assertFalse(primeNumbers.isPrime(4));
 		assertFalse(primeNumbers.isPrime(6));
@@ -31,9 +33,15 @@ public class PrimesTest {
 	}
 	
 	@Test
-	public void primeList() {
+	public void primeList13() {
 		List<Integer> x = primeNumbers.generate(1, 16);
 		assertEquals(primes13, x);
+	}
+	
+	@Test
+	public void primeList7920() {
+		List<Integer> x = primeNumbers.generate(7900, 7920);
+		assertEquals(primes7920, x);
 	}
 	
 	@Test
