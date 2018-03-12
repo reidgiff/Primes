@@ -13,7 +13,7 @@ public class PrimeNumberGeneratorRunner {
 				List<Integer> results = generator.generate(Integer.valueOf(args[0]), Integer.valueOf(args[1]));
 				System.out.println(results.toString());
 			} catch (NumberFormatException e) {
-				System.out.println("Number Format Exception. Numbers expected as arguement");
+				System.out.println("Number Format Exception. Numbers expected as arguements");
 			}
 		}
 	}

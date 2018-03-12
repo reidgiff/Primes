@@ -122,40 +122,43 @@ public class PrimesTest {
 
 	@Test
 	public void runner13() {
-		PrimeNumberGeneratorRunner primeNumberGeneratorRunner = new PrimeNumberGeneratorRunner();		
 		String[] args = new String[2];
 		args[0] = "1";
 		args[1] = "13";		
-		primeNumberGeneratorRunner.main(args);
+		PrimeNumberGeneratorRunner.main(args);
 		assertEquals("[2, 3, 5, 7, 11, 13]", outContent.toString().trim());
 	}
 	
 	@Test
-	public void runner() {
-		PrimeNumberGeneratorRunner primeNumberGeneratorRunner = new PrimeNumberGeneratorRunner();		
+	public void runner() {	
 		String[] args = new String[2];
 		args[0] = "7900";
 		args[1] = "7920";		
-		primeNumberGeneratorRunner.main(args);
+		PrimeNumberGeneratorRunner.main(args);
 		assertEquals("[7901, 7907, 7919]", outContent.toString().trim());
 	}
 	
 	@Test
-	public void runnerLetters() {
-		PrimeNumberGeneratorRunner primeNumberGeneratorRunner = new PrimeNumberGeneratorRunner();		
+	public void runnerLetters() {	
 		String[] args = new String[2];
 		args[0] = "F";
 		args[1] = "13";		
-		primeNumberGeneratorRunner.main(args);
-		assertEquals("Number Format Exception. Numbers expected as arguement", outContent.toString().trim());
+		PrimeNumberGeneratorRunner.main(args);
+		assertEquals("Number Format Exception. Numbers expected as arguements", outContent.toString().trim());
 	}
 	@Test
-	public void runnerOne() {
-		PrimeNumberGeneratorRunner primeNumberGeneratorRunner = new PrimeNumberGeneratorRunner();		
+	public void runnerOne() {	
 		String[] args = new String[1];
 		args[0] = "13";		
-		primeNumberGeneratorRunner.main(args);
+		PrimeNumberGeneratorRunner.main(args);
 		assertEquals("2 numerical arguments seperated by a space expected", outContent.toString().trim());
+	}
+	
+	@Test
+	//factorial of MAX_VALUE is taking >15 minutes to run. Testing with half that value.
+	public void halfMaxInteger() {
+		List<Integer> x = primeNumbers.generate((Integer.MAX_VALUE-1)/2, (Integer.MAX_VALUE-1)/2);
+		assertTrue(x.isEmpty());
 	}
 	
 }
