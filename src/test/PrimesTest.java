@@ -86,7 +86,7 @@ public class PrimesTest {
 		assertEquals(BigInteger.valueOf(720), primeNumbers.factorial(6));
 	}
 	
-	
+	@Test
 	public void listCount() {
 		List<Integer> x = primeNumbers.generate(0, 101);
 		assertEquals(x.size(), 26);
